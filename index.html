@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SATILIK || GelKurye</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Mukta+Mahee:300,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+    </head>
+    <body>
+
+        <section class="bg-alt hero p-0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-6 bg-faded text-center col-fixed">
+                        <div class="vMiddle">
+                          <h1 class="pt-4 h2">
+                              <span class="text-green">GelKurye Mobil Uygulaması</span>
+                              <small>tüm haklarıyla satılıktır.</small>
+                          </h1>
+                          <p class="mt-4">
+                              Satın almak için teklifinizi gönderin.
+                          </p>
+                          <div class="pt-5">
+                              <label for="name">
+                              <a href="https://hidirektor.com.tr" target="_blank" class="btn text-white bg-green btn-lg">Geliştirici Hakkında</a>
+                              </label>
+                          </div>
+                          <div class="row d-md-flex text-center justify-content-center text-primary action-icons">
+                              <div class="col-sm-4">
+                                  <p><em class="ion-ios-telephone-outline icon-md"></em></p>
+                                  <p class="lead"><a href="https://wa.me/+905302975718">WhatsApp İletişim</a></p>
+                              </div>
+                              <div class="col-sm-4">
+                                  <p><em class="ion-ios-chatbubble-outline icon-md"></em></p>
+                                  <p class="lead"><a href="mailto:hidirektor@gmail.com">hidirektor@gmail.com</a></p>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6 offset-sm-6">
+                        <section class="bg-alt">
+                            <div class="container">
+                                <div class="row height-100">
+                                    <div class="col-sm-10 offset-sm-1 mt-2">
+                                        <form id="main-offer-form" action="contact.php" method="post">
+                                            <h2 class="text-primary">Kurye Uygulamasına mı İhtiyacınız Var?</h2>
+                                            <hr/>
+                                            <div class="form-group">
+                                                <input
+                                                  type="text"
+                                                  name="name"
+                                                  id="name"
+                                                  class="form-control"
+                                                  placeholder="İsim Soyisim (Gerekli)"
+                                                >
+                                            </div>
+                                            <div class="row">
+                                              <div class="col">
+                                                <div class="form-group">
+                                                    <input
+                                                      type="email"
+                                                      name="email"
+                                                      class="form-control"
+                                                      placeholder="E-Posta (Gerekli)"
+                                                    >
+                                                </div>
+                                              </div>
+                                              <div class="col">
+                                                <div class="form-group">
+                                                    <input
+                                                      type="text"
+                                                      name="phone"
+                                                      class="form-control"
+                                                      placeholder="Telefon Numarası (Gerekli)"
+                                                    >
+                                                </div>
+                                              </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <input
+                                                  type="number"
+                                                  name="price"
+                                                  class="form-control"
+                                                  min="0"
+                                                  placeholder="Teklifiniz (Gerekli)">
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea name="comments" class="form-control" placeholder="Mesajınız"></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                              <div id="recaptcha" class="g-recaptcha" data-sitekey="6Lc_sf8aAAAAAFk3KIcYvqcIoo1HeCOZu4faK3DA" data-callback="onSubmit" data-size="invisible"></div>
+                                            </div>
+
+                                            <button type="submit" class="btn text-white btn-lg bg-primary btn-block">Teklif Gönder</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script>
+          $( "#main-offer-form" ).validate({
+            errorClass: 'form-control-feedback',
+            errorElement: 'div',
+            highlight: function(element) {
+              $(element).parents(".form-group").addClass("has-danger");
+            },
+            unhighlight: function(element) {
+              $(element).parents(".form-group").removeClass("has-danger");
+            },
+            rules: {
+                name: 'required',
+                email: {
+                  required: true,
+                  email: true
+                },
+                phone: {
+                  required: true,
+                  minlength:10,
+                  maxlength:10
+                },
+                price: "required",
+                comments: {
+                  maxlength: 500
+                }
+              },
+              messages: {
+                name: 'Lütfen isim soyisim girin.',
+                email: {
+                  required: 'Bu alanı boş bırakamazsınız.',
+                  email: 'Lütfen geçerli bir e-posta adresi girin.'
+                },
+                phone: {
+                  required: 'Bu alanı boş bırakamazsınız.',
+                  matches: 'Lütfen geçerli bir telefon numarası girin.',
+                  minlength: 'Telefon numarası minimum 10 karakter olmalı.',
+                  maxlength: 'Telefon numarası maksimum 10 karakter olmalı.'
+                },
+                price: {
+                  price: 'Lütfen fiyat teklifinizi girin.'
+                },
+                comments: {
+                  maxlength: 'Mesajınız 500 karakteri geçemez.'
+                }
+              }
+          });
+        </script>
+    </body>
+</html>
