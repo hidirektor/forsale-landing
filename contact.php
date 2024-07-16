@@ -1,8 +1,7 @@
 <?php
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
 
 require 'PHPMailer-master/src/Exception.php';
 require 'PHPMailer-master/src/SMTP.php';
@@ -41,8 +40,8 @@ if (isset($_POST['email'])) {
         $mail->isSMTP();
         $mail->Host = 'mail.hidirektor.com.tr';
         $mail->SMTPAuth = true;
-        $mail->Username = 'verification@hidirektor.com.tr';
-        $mail->Password = 'Jjc4FA{{GIEn';
+        $mail->Username = '';
+        $mail->Password = '';
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port = 587;
 
